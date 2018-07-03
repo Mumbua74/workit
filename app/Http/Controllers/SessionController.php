@@ -21,17 +21,13 @@ class SessionController extends Controller
     	$session_94120->date = $date;
     	$session_94120->save();
 
-    	return response()->json('Session saved Successfully');
+    	return $session_94120;
     }
 
     public function session(Request $req)
     {
-    	$email = $req->input('email');
-    	$current = Carbon::now()->toDateString();
-    	$fetch = DB::table('session_94120')->select()->where('email',$email)->get();
-
-   	return response()->json($fetch);
-    return response()->json($current);
+    	$data = session_94120::all();
+        return $data;
 
     }
 }
