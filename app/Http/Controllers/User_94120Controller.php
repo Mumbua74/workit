@@ -34,7 +34,7 @@ class User_94120Controller extends Controller
         $user_94120->password = Hash::make($password);
         $user_94120->save();
 
-        return $user_94120->toJson();
+        return $user_94120;
     }
 
     public function login(Request $req)
@@ -58,4 +58,5 @@ class User_94120Controller extends Controller
 
         return $data->toJson();
     }
+
 }
