@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use session_94120;
+use App\session_94120;
 class SessionController extends Controller
 {
     public function save(Request $req)
