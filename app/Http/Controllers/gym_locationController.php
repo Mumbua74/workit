@@ -26,14 +26,14 @@ class gym_locationController extends Controller
 
 		$gym_locations94120->save();
 
-		return response()->json('Gym saved Successfully');
+		return $gym_locations94120->toJson();
 	}
 
 	public function showGym(Request $req)
 	{
 		$data = gym_locations94120::all();
 
-		return response()->json($data);
+		return $data->toJson();
 	}
 
 	public function gymNear(Request $req)
@@ -42,7 +42,7 @@ class gym_locationController extends Controller
 
 		$data = gym_locations94120::where('location',$location)->get();
 
-		return response()->json($data);
+		return $data->toJson();
 
 	}
 }

@@ -10,7 +10,7 @@ class instructorController extends Controller
 	{
 		$data = instructors_94120::all();
 
-		return response()->json($data);
+		return $data->toJson();
 	}
 
 	public function saveInstructor(Request $req)
@@ -29,8 +29,7 @@ class instructorController extends Controller
 		$instructors_94120->profile_photo = $profile_photo;
 		$instructors_94120->save();
 
-		return response()->json('Instructor saved Successfully');
-		
+		return $instructors_94120->toJson();		
 	}
 
 }
