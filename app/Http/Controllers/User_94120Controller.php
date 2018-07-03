@@ -7,6 +7,7 @@ use DB;
 use App\user_94120;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\UserResource;
 
 class User_94120Controller extends Controller
 {
@@ -34,7 +35,9 @@ class User_94120Controller extends Controller
         $user_94120->password = Hash::make($password);
         $user_94120->save();
 
-        return $user_94120;
+        return new UserResource(
+            $user_94120
+        );
     }
 
     public function login(Request $req)
