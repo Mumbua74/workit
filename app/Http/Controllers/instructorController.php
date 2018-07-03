@@ -11,7 +11,7 @@ class instructorController extends Controller
 	{
 		$data = instructors_94120::all();
 
-		return $data->toJson();
+		return $data;
 	}
 
 	public function saveInstructor(Request $req)
