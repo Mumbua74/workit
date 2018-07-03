@@ -21,7 +21,7 @@ class instructorController extends Controller
 		$gender = $req['gender'];
 		$profile_photo = $req['profile_photo'];
 
-		$instructors_94120 = new instructors_94120
+		$instructors_94120 = new instructors_94120;
 		$instructors_94120->name = $name;
 		$instructors_94120->contact = $contact;
 		$instructors_94120->email = $email;
