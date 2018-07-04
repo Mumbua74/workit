@@ -28,16 +28,14 @@ class User_94120Controller extends Controller
         $email = $req['email'];
         $password = $req['password'];
 
-        $user_94120 = new user_94120;
+        $user_94120 = new user_94120();
         $user_94120->firstname =$firstname;
         $user_94120->lastname = $lastname;
         $user_94120->email = $email;
         $user_94120->password = Hash::make($password);
         $user_94120->save();
 
-        return new UserResource(
-            $user_94120
-        );
+        return new UserResource($user_94120);
     }
 
     public function login(Request $req)
@@ -55,11 +53,45 @@ class User_94120Controller extends Controller
         return null;
     }
 
-    public function showUsers(Request $req)
+    public function showUsers()
     {
         $data = user_94120::all();
 
         return $data->toJson();
     }
 
+    public function profile($id)
+    {
+        return new UserResource(user_94120::findOrFail($id));
+    }
+
+    public function updateProfile(Request $req)
+    {
+        $id = $req['id'];
+        $firstname = $req['firstname'];
+        $lastname = $req['lastname'];
+        $email = $req['email'];
+        $prefered_location = $req['prefered_location'];
+        $age = $req['age'];
+        $gender = $req['gender'];
+        $weight = $req['weight'];
+        $target_weight = $req['target_weight'];
+
+         $user_94120 = new user_94120();
+        $user_94120->firstname =$firstname;
+        $user_94120->lastname = $lastname;
+        $user_94120->email = $email;
+        $user_94120->prefered_location = $prefered_location;
+        $user_94120->age = $age;
+        $user_94120->gender = $gender;
+        $user_94120->weight = $weight;
+        $user_94120->target_weight = $target_weight;
+        $user_94120->save();
+
+        return new UserResource($user_94120);
+
+
+    }
+
 }
+
