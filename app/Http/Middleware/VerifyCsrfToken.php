@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+Route::post('register','User_94120Controller@register');
     ];
 }
