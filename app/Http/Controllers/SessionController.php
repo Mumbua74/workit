@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\session_94120;
+use App\Http\Resources\UserResource;
+
 class SessionController extends Controller
 {
     public function save(Request $req)
@@ -21,13 +23,13 @@ class SessionController extends Controller
     	$session_94120->date = $date;
     	$session_94120->save();
 
-    	return $session_94120;
+    	return new SessionResource ($session_94120);
     }
 
     public function session(Request $req)
     {
     	$data = session_94120::all();
-        return $data;
+        return new SessionResource($data);
 
     }
 }

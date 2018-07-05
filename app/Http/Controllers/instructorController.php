@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\instructors_94120;
+use DB;
+use App\Http\Resources\UserResource;
 
 class instructorController extends Controller
 {
@@ -11,7 +13,7 @@ class instructorController extends Controller
 	{
 		$data = instructors_94120::all();
 
-		return $data;
+		return new InstructorResource($data);
 	}
 
 	public function saveInstructor(Request $req)
@@ -30,7 +32,7 @@ class instructorController extends Controller
 		$instructors_94120->profile_photo = $profile_photo;
 		$instructors_94120->save();
 
-		return $instructors_94120->toJson();		
+		return new InstructorResource($instructors_94120);		
 	}
 
 }

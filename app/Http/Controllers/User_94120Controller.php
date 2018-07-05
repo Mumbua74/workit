@@ -13,16 +13,6 @@ class User_94120Controller extends Controller
 {
     public function register(Request $req)
     {
-        // $validatedData = $req->validate([
-        // 'firstname'=>'required',
-        //     'lastname'=>'required',
-        //     'email'=>'required|unique:user_94120',
-        //     'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
-        //     'password_confirmation' => 'min:6',
-
-        // ]);
-        
-
         $firstname = $req['firstname'];
         $lastname = $req['lastname'];
         $email = $req['email'];
@@ -48,7 +38,7 @@ class User_94120Controller extends Controller
 
         if(Hash::check($password, $user_94120->password))
         {
-            return $user_94120->toJson();
+            return new UserResource($user_94120);
         }
         return null;
     }
@@ -57,7 +47,7 @@ class User_94120Controller extends Controller
     {
         $data = user_94120::all();
 
-        return $data->toJson();
+        return new UserResource($data);
     }
 
     public function profile($userid)

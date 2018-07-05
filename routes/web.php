@@ -26,5 +26,6 @@ Route::post('/saveInstructor','instructorController@saveInstructor');
 Route::get('/showinstructors','instructorController@showinstructors');
 
 //Gym
-Route::post('/isaveGym','gym_locationController@saveGym');
+
 Route::get('/showGym','gym_locationController@showGym');
+
