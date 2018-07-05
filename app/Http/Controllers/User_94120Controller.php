@@ -13,14 +13,14 @@ class User_94120Controller extends Controller
 {
     public function register(Request $req)
     {
-        $validatedData = $req->validate([
-        'firstname'=>'required',
-            'lastname'=>'required',
-            'email'=>'required|unique:user_94120',
-            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
-            'password_confirmation' => 'min:6',
+        // $validatedData = $req->validate([
+        // 'firstname'=>'required',
+        //     'lastname'=>'required',
+        //     'email'=>'required|unique:user_94120',
+        //     'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+        //     'password_confirmation' => 'min:6',
 
-        ]);
+        // ]);
         
 
         $firstname = $req['firstname'];
@@ -60,14 +60,14 @@ class User_94120Controller extends Controller
         return $data->toJson();
     }
 
-    public function profile($id)
+    public function profile($userid)
     {
-        return new UserResource(user_94120::findOrFail($id));
+        return new UserResource(user_94120::findOrFail($userid));
     }
 
     public function updateProfile(Request $req)
     {
-        $id = $req['id'];
+        $userid = $req['userid'];
         $firstname = $req['firstname'];
         $lastname = $req['lastname'];
         $email = $req['email'];
