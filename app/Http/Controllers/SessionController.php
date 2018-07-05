@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\session_94120;
-use App\Http\Resources\UserResource;
+use App\Http\Resources\SessionResource;
 
 class SessionController extends Controller
 {

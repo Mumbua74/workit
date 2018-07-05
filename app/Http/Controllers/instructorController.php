@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\instructors_94120;
 use DB;
-use App\Http\Resources\UserResource;
+use App\Http\Resources\InstructorResource;
 
 class instructorController extends Controller
 {
