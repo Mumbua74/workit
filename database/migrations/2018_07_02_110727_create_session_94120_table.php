@@ -14,7 +14,7 @@ class CreateSession94120Table extends Migration
     public function up()
     {
         Schema::create('session_94120', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('sessionid');
             $table->string('exercise_name');
             $table->string('rep_number');
             $table->string('location_name');
