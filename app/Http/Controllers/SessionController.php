@@ -32,4 +32,5 @@ class SessionController extends Controller
         return new SessionResource($data);
 
     }
+    
 }
